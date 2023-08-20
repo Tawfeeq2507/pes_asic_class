@@ -1,6 +1,9 @@
 ![image](https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/33403244-c9dd-4aef-a022-da52e2eef51c)
 
-Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs using open-source tools guided by Kunal Ghosh
+Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs using open-source tools.
+
+**Course Name** : VLSI Physical Design for ASICs  
+**Instructor** : Kunal Ghosh 
 
 ## Tools Used:
 + **RISC-V GNU Toolchain**: A comprehensive set of tools for compiling and building software to run on RISC-V processors.

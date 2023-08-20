@@ -284,7 +284,7 @@ loop:   add   a4, a3, a4    //Incremental addition
         ret
 ```
 
-we can see the Assembly File load.S
+we can see the Assembly File load.S:
 
 ![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/76496203-7aa0-42a2-8e51-dfc085403d37)
 

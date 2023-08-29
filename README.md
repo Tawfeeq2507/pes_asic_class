@@ -564,7 +564,6 @@ this will give us a clear view of the design file:
 
 <details>
 <summary> Introduction to iVerilog GTKwave Part-2 </summary>
-	
 -to view the contents of the testbench file and the design file simultaneously  u can execute
 
 `vim good_mux.v -o tb_good_mux.v`

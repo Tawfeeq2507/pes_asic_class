@@ -480,7 +480,7 @@ we can see the Assembly File load.S:
 </details>
 
 <details>
-<summary> iVerilog GTKwave Part-1 </summary>	
+<summary> Introduction to iVerilog GTKwave Part-1 </summary>	
 
 in this we learn how to work with iVerilog and GTKwave:
 
@@ -563,8 +563,8 @@ this will give us a clear view of the design file:
 </details>
 
 <details>
-<summury>Introduction to iVerilog Part-2</summury>
-
+<summary> Introduction to iVerilog GTKwave Part-2 </summary>
+	
 -to view the contents of the testbench file and the design file simultaneously  u can execute
 
 `vim good_mux.v -o tb_good_mux.v`

@@ -429,6 +429,69 @@ we can see the Assembly File load.S:
 
 </details>
 
+# Day-3
+
+## Introduction to Open-Source Simulator iVerilog
+
+<details>
+<summary> Introduction to iVerilog Design Testbench </summary>
+	
+- **What is a Simulator?**
+  - Simulator is a tool which is used for checking and simulate the design,its a software tool used to simulate and analyze the behavior of 
+    digital circuits described in RTL (Register-Transfer Level) or gate-level representations.
+  - RTL design is checked for adherence to the spec by simulating the design.
+  - In this course we will be using **"iverilog"**
+  - **How does a Simulator work?**
+    - Simulator looks for the changes in the values of input signals.
+    - upon change to the input, the output is evaluated.
+    - if there is no change to input, then output is unchanged.
+
+- **Introduction to Iverilog**
+  - Icarus Verilog, often abbreviated as "iverilog,"is an open-source Verilog simulator used primarily for the simulation and verification of 
+    digital circuits described in the Verilog hardware description language (HDL).
+  - Icarus Verilog can be interacted through a command-line interface (CLI) ( -iverilog -o my_design my_design.v my_testbench.v ).
+  - In iverilog we enter both the design and the testbench which gives a vdc file also known as "value change dump" file which is later used to 
+    run and open in GTKwave(an open source waveform viewer).
+
+     ![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/8bc3a765-5f01-45f1-beba-fe08f1830cee)
+
+
+- **What is Design?**
+  - Design is the actual verilog code or set of verilog codes which has the intended functionality to meet with the required specifications.
+
+- **What is a Testbench?**
+  - A "testbench" is a separate module or set of modules specifically created to test and verify the functionality of another module or design 
+    under different conditions and scenarios.
+  - Testbench is the setup to apply stimulus(test_vectors) to the design to check its functionality.
+    
+	![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/5536f81a-96d7-45f8-8e81-a2d23fa15e33)
+
+</details>
+
+## Labs using Iverilog and GTKwave
+
+<details>
+<summary> Introduction to Lab </summary>
+
+- git clone sky130RTLDesignAndSynthesisWorkshop
+- once done we get sky130RTLDesignAndSynthesisWorkshop directory which contains the following files my_lib, lib , verilog_model, verilog_files 
+  which we will use in out course 
+
+</details>
+
+<details>
+<summary> iVerilog GTKwave Part-1 </summary>	
+
+in this we learn how to work with iVerilog and GTKwave:
+
+- First we load the design files in iVerilog by choosing the file through Verilog_files folder where for every design we have an 
+  associated testbench(ex:tb_design file).
+  
+- so for our first design we load a Mux into the Simulator:
+
+Design file (good_mux.v):
+
+      
 
 
 

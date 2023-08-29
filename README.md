@@ -5,12 +5,6 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
 **Course Name** : VLSI Physical Design for ASICs  
 **Instructor** : Kunal Ghosh 
 
-## Tools Used:
-+ **RISC-V GNU Toolchain**: A comprehensive set of tools for compiling and building software to run on RISC-V processors.
-+ **RISC-V ISA Simulator**: A RISC-V simulator used for functional verification and testing of RISC-V code without needing actual hardware.
-+ **RISC-V Proxy Kernel**: The RISC-V Proxy Kernel, a lightweight execution environment for running user-level applications on RISC-V processors.
-
-
 # VLSI Physical Design for ASICs
 The objective of VLSI (Very Large Scale Integration) physical design for ASICs (Application-Specific Integrated Circuits) is to transform a digital circuit's logical representation into a physical layout that meets various performance, power, area, and manufacturability requirements.
 # SKILL OUTCOMES
@@ -51,8 +45,60 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
   - [Algorithm for C Program using ASM](#algorithm-for-c-program-using-asm)
   - [Review ASM Function Calls](#review-asm-function-calls)
   - [Simulate C Program using Function Call](#simulate-c-program-using-function-call)
-# Introduction to Basic Keywords
-## Introduction
+
+## DAY 3
+**Introduction to Verilog RTL design and Synthesis**
++ [Introduction to Open-Source Simulator iVerilog](#introduction-to-open-source-simulator-iverilog)
+   - Introduction to iVerilog Design Testbench
++ [Labs using iVerilog and GTKwave](#labs-using-iverilog-and-gtkwave)
+   - Introduction to Lab
+   - iVerilog GTKwave Part-1
+   - iVerilog GTKwave Part-2
++ [Introduction to Yosys and Logic synthesis](#introduction-to-yosys-and-logic-synthesis)
+   - Introduction to Yosys
+   - Introduction to Logic Synthesis
++ [Labs using Yosys and Sky130 PDKs](#labs-using-yosys-and-sky130-pdks)
+   - Yosys good mux
+ 
+## DAY 4
+**Timing Libs, Hierarchical vs Flat Synthesis and Efficient Flop Coding Styles**
++ [Introduction to Timing Dot Libs](#introduction-to-timing-dot-libs)
+  - Introduction to Dot Lib
++ [Hierarchical vs Flat Synthesis](#hierarchical-vs-flat-synthesis)
+  - Hierarchical Synthesis Flat Synthesis 
++ [Various Flop Coding Styles and Optimization](#various-flop-coding-styles-and-optimization)
+  - Why Flops and Flop Coding Styles
+  - Lab Flop Synthesis Simulations
+  - Interesting Optimisations
+
+## DAY 5
+**Combinational and Sequential Optmizations**
++ [Introduction to Optimisations](#introduction-to-optimisations)
++ [Combinational Logic Optimisations](#combinational-logic-optimisations)
++ [Sequential Logic Optimisations](#sequential-logic-optimisations)
++ [Sequential Optimisations for Unused Outputs](#sequential-optimisations-for-unused-outputs)
+
+## DAY 6
+**GLS, Blocking vs Non-Blocking and Synthesis-Simulation Mismatch**
++ [GLS Synthesis-Simulation Mismatch and Blocking Non-Blocking Statements](#gls-synthesis-simulation-mismatch-and-blocking-non-blocking-statements)
+  - GLS Concepts And Flow Using Iverilog
+  - Synthesis Simulation Mismatch
+  - Blocking And Non Blocking Statements In Verilog
+  - Caveats With Blocking Statements
++ [Labs on GLS and Synthesis-Simulation Mismatch](#labs-on-gls-and-synthesis-simulation-mismatch)
++ [Labs on Synth-Sim Mismatch for Blocking Statement](#labs-on-synth-sim-mismatch-for-blocking-statement)
+
+## Tools Used:
++ **RISC-V GNU Toolchain**: A comprehensive set of tools for compiling and building software to run on RISC-V processors.
++ **RISC-V ISA Simulator**: A RISC-V simulator used for functional verification and testing of RISC-V code without needing actual hardware.
++ **RISC-V Proxy Kernel**: The RISC-V Proxy Kernel, a lightweight execution environment for running user-level applications on RISC-V processors.
+
+# Day-1   
+## Introduction to Basic Keywords
+
+<details>
+<summary> Introduction </summary>
+	
 - **ISA (Instruction Set Archhitecture)**
   - ISA defines the interface between a computer's hardware and its software, specifically how the processor and its components interact with the software instructions that drive the execution of tasks.
   - It encompasses a set of instructions, addressing modes, data types, registers, memory organization, and the mechanisms for executing and managing instructions.
@@ -63,7 +109,11 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
 
 <img width="536" alt="image" src="https://github.com/Veda1809/pes_asic_class/assets/142098395/4eabe0b7-4581-419b-88e7-84c7ac1dac8e">
 
-## From Apps to Hardware
+</details>
+
+<details>
+<summary> From Apps to Hardware </summary>
+	
 1. **Apps:** Application software, often referred to simply as "applications" or "apps," is a type of computer software that is designed to perform specific tasks or functions for end-users.
 2. **System software:** System software refers to a category of computer software that acts as an intermediary between the hardware components of a computer system and the user-facing application software. It provides essential services, manages hardware resources, and enables the execution of application programs. System software plays a critical role in maintaining the overall functionality, security, and performance of a computer system.'
 3. **Operating System:** The operating system is a fundamental piece of software that manages hardware resources and provides various services for both users and application programs. It controls tasks such as memory management, process scheduling, file system management, and user interface interaction. Examples of operating systems include Microsoft Windows, macOS, Linux, and Android.
@@ -76,7 +126,11 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
 
  7. **Hardware:** Hardware refers to the physical components of a computer system or any electronic device. It encompasses all the tangible parts that make up a computing or electronic device and enable it to perform various tasks.
 
-## Detail Description of Course Content
+</details>
+
+<details>
+<summary> Detail Description of Course Content </summary>
+
 **Pseudo Instructions:** Pseudo-instructions are used to simplify programming, improve code readability, and reduce the number of explicit instructions a programmer needs to write. They are especially useful for common programming patterns that involve multiple instructions.
 `Ex: li, mv`.
 
@@ -92,10 +146,15 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
 
 **Memory Allocation and Stack Pointer** 
 - Memory allocation refers to the process of assigning and managing memory segments for various data structures, variables, and objects used by a program. It involves allocating memory space from the system's memory pool and releasing it when it is no longer needed to prevent memory leaks.
-- The stack pointer is a register used by a program to keep track of the current position of the program's execution on the call stack. 
+- The stack pointer is a register used by a program to keep track of the current position of the program's execution on the call stack.
 
-# Labwork for RISCV Toolchain
-## C Program
+</details>
+
+## Labwork for RISCV Toolchain
+
+<details>
+<summary> C Program </summary>
+	
 We wrote a C program for calculating the sum from 1 to n using a text editor, nano.
 
 `nano sumton.c`
@@ -112,6 +171,10 @@ int main()
         return 0;
 }
 ```
+</details>
+
+<details>
+<summary> RISCV GCC Compiler and Dissemble </summary>
 
 Using the gcc compiler, we compiled the program to get the output.
 
@@ -120,9 +183,7 @@ Using the gcc compiler, we compiled the program to get the output.
 `.\a.out`
 
 ![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/0c9f2719-f438-4a6b-b565-04f9dec1efa1)
-
-## RISCV GCC Compiler and Dissemble
-
+	
 Using the riscv gcc compiler `riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sumton.o sumton.c`, we compiled the C program.
 
 ![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/c8e7d12b-253b-40b4-a150-102d1d281fd2)
@@ -139,8 +200,11 @@ When we use `-Ofast` optimisation, we can see that the number of instructions ar
 
 ![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/e2f76f68-489d-4383-bcac-4fcb08261c01)
 
-## Spike Simulation and Debug
+</details>
 
+<details>
+<summary> Spike Simulation and Debug </summary>
+	
 `spike pk sum1ton.o` is used to check whether the instructions produced are right to give the correct output.
 
 `spike -d pk sum1ton.c` is used for debugging.
@@ -151,17 +215,29 @@ The contents of the registers can also be viewed.
 
 ![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/9f74dc64-004f-4c1d-a580-6494ca8134d1)
 
-# Integer Number Representation 
+</details>
 
-## Unsigned Numbers
+## Integer Number Representation 
+
+<details>
+<summary> 64-Bit Unsigned Numbers </summary>
+	
 - Unsigned numbers, also known as non-negative numbers, are numerical values that represent magnitudes without indicating direction or sign.
 - Range: 0 to 2^(N) - 1.
 
-## Signed Numbers
+</details>
+
+<details>
+<summary> 64-Bit Signed Numbers </summary>
+	
 - Signed numbers are numerical values that can represent both positive and negative magnitudes, along with zero.
 - Range : -(2^(N-1)) to 2^(N-1) - 1.
+
+</details>
  
-## Labwork
+<details>
+<summary> Labwork for 64 bit Unsigned and Signed Numbers </summary>
+	
 **Unsigned 64-bit Number**
 
 ``` c
@@ -197,18 +273,32 @@ int main(){
 
 ![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/ab2af06b-1e1b-402c-8fcc-61d0ebbb31d5)
 
+</details>
 
-# Application Binary Interface
-## Introduction to ABI
+# Day-2
+## Application Binary Interface
+
+<details>
+<summary> Introduction to ABI </summary>
+	
 + An Application Binary Interface (ABI) is a set of rules and conventions that dictate how binary code interacts with and communicates with other binary code, typically at the level of machine code or compiled code. In simpler terms, it defines the interface between two software components or systems that are written in different programming languages, compiled by different compilers, or running on different hardware architectures.
 + The ABI is crucial for enabling interoperability between different software components, such as different libraries, object files, or even entire programs. It allows components compiled independently and potentially on different platforms to work seamlessly together by adhering to a common set of rules for communication and data representation.
-## Memmory Allocation for Double Words
+
+</details>
+
+<details>
+<summary> Memory Allocation for Double Words </summary>
+	
 64-bit number (or any multi-byte value) can be loaded into memory in little-endian or big-endian. It involves understanding the byte order and arranging the bytes accordingly
+
 1. **Little-Endian:**
 In little-endian representation, you store the least significant byte (LSB) at the lowest memory address and the most significant byte (MSB) at the highest memory address.
+
 2. **Big-Endian:**
 In big-endian representation, you store the most significant byte (MSB) at the lowest memory address and the least significant byte (LSB) at the highest memory address.
+
 #### For example, consider the 64-bit hexadecimal value 0x0123456789ABCDEF. 
+
 In Little-Endian representation, it would be stored as follows in memory:
 
 ![image](https://github.com/RohithNagesh/pes_asic_class/assets/103078929/307fabf6-7f58-4337-8171-6d62d99a4386)
@@ -216,8 +306,14 @@ In Little-Endian representation, it would be stored as follows in memory:
 In Big-Endian representation, it would be stored as follows in memory:
 
 ![image](https://github.com/RohithNagesh/pes_asic_class/assets/103078929/aa53e082-5878-4e3f-948a-f6f080ed0ed2)
-## Load, Add and Store Instructions
+
+</details>
+
+<details>
+<summary> Load, Add and Store instructions </summary>
+	
 Load, Add, and Store instructions are fundamental operations in computer architecture and assembly programming. They are often used to manipulate data within a computer's memory and registers.
+
 1. **Load Instructions:**
 Load instructions are used to transfer data from memory to registers. They allow you to fetch data from a specified memory address and place it into a register for further processing.
 
@@ -227,6 +323,7 @@ In this Example
 - `ld` is the load double-word instruction.
 - `x6` is the destination register.
 - `8(x5)` is the memory address pointed to by register `x5` (base address + offset).
+
 2. **Store Instructions:**
 Store instructions are used to write data from registers into memory.They store values from registers into memory addresses
 
@@ -236,6 +333,7 @@ In this Example
 - `sd` is the store double-word instruction.
 - `x8` is the source register.
 - `8(x9)` is the memory address pointed to by register `x9` (base address + offset).
+
 3. Add Instructions:
   Add instructions are used to perform addition operations on registers. They add the values of two source registers and store the result in a destination register.
 
@@ -245,21 +343,38 @@ In this Example
 - `add` is the add instruction.
 - `x9` is the destination register.
 - `x10` and `x11` are the source registers.
-## 32-Registers and their ABI Names
+
+</details>
+
+<details>
+<summary> 32-Registers and their ABI Names </summary>
+	
 The choice of the number of registers in a processor's architecture, such as the RISC-V RV64 architecture with its 32 general-purpose registers, involves a trade-off between various factors. While modern processors can have more registers but increasing the number of registers could lead to larger instructions, which would take up more memory and potentially slow down instruction fetch and decode.
+
 #### ABI Names
+
 ABI names for registers serve as a standardized way to designate the purpose and usage of specific registers within a software ecosystem. These names play a critical role in maintaining compatibility, optimizing code generation, and facilitating communication between different software components. 
 
 ![image](https://github.com/RohithNagesh/pes_asic_class/assets/103078929/b735fc44-0c08-40e8-8303-c338647dbd9f)
-# Labwork using ABI Function Calls
-## Algorithm for C Program using ASM
+
+</details>
+
+## Labwork using ABI Function Calls
+
+<details>
+<summary> Algorithm for C Program using ASM </summary>
+	
 - Incorporating assembly language code into a C program can be done using inline assembly or by linking separate assembly files with your C code.
 - When you call an assembly function from your C code, the C calling convention is followed, including pushing arguments onto the stack or passing them in registers as required.
 - The program executes the assembly function, following the assembly instructions you've provided.
 
 ![image](https://github.com/RohithNagesh/pes_asic_class/assets/103078929/1d76b7ef-cac9-4331-9190-31af36525e0c)
 
-## Review ASM Function Calls
+</details>
+
+<details>
+<summary> Review ASM Function Calls </summary>
+	
 - You write your C code in one file and your assembly code in a separate file.
 - In the assembly file, you declare assembly functions with appropriate signatures that match the calling conventions of your platform.
 
@@ -303,10 +418,16 @@ we can see the Assembly File load.S:
 
 ![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/76496203-7aa0-42a2-8e51-dfc085403d37)
 
-## Simulate C Program using Function Call
+</details>
+
+<details>
+<summary> Simulate C Program using Function Call </summary>
+	
 **Compilation:** To compile C code and Asseembly file use the command `riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o 1to9_custom.o 1to9_custom.c load.S` this would generate object file `1to9_custom.o`.
 
 **Execution:** To execute the object file run the command `spike pk 1to9_custom.o`
+
+</details>
 
 
 

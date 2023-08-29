@@ -540,6 +540,56 @@ always #10 i0 = ~i0;
 always #55 i1 = ~i1;
 endmodule
 ```
+-we can load the design file and testbench into the iverilog using the command:
+
+`iverilog good_mux.v tb_good_mux.v` 
+
+-this gives us a output file `a.out` which we will execute to run it:
+
+![Screenshot from 2023-08-29 19-47-41](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/5addc88b-a08a-490b-839e-c5d416e2796f)
+
+-now execute the a.out file to give a `.vcd` (value change dump) file which can be used to run in GTKwave:
+
+![Screenshot from 2023-08-29 19-51-32](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/5a87c841-db29-4395-9a22-f05e528eee7e)
+
+-the output file that `./a.out` given is now loaded into GTKwave waveform viewer using the command 
+
+`gtkwave tb_good_mux.vcd`
+
+this will give us a clear view of the design file:
+
+![Screenshot from 2023-08-29 20-00-44](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/daf0ccab-e7db-4934-9181-085ab44df412)
+
+</details>
+
+<details>
+<summury>Introduction to iVerilog Part-2</summury>
+
+-to view the contents of the testbench file and the design file simultaneously  u can execute
+
+`vim good_mux.v -o tb_good_mux.v`
+
+![Screenshot from 2023-08-29 20-07-12](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/471100fd-998a-4f45-b795-256b85f571cc)
+
+</details>
+
+## Introduction to Yosys and Logic Synthesis
+
+<details>
+<summury>Introduction to Yosys</summury>
+
+- **What is Synthesizer?**
+   - 
+
+
+</details>
+
+
+
+
+
+
+
 
 
 

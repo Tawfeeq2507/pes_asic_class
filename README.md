@@ -603,14 +603,14 @@ this will give us a clear view of the design file:
    	![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/cf3d86b3-c0a7-4485-bef1-b15e6de0f54c)
 
  + **Verification of Synthesis:**
-      - To verify if we have done the Synthesis without damaging our design files:
+     - To verify if we have done the Synthesis without damaging our design files:
 
-	 	- we give our Netlist file and testbench to our simuluator iverilog.
-   		- this gives us the Vcd (value change dump file).
-     		- this vdc file is then loaded into GTKwave form viewer.
- 		- which gives us a stimulus as output
+	![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/737a777b-6004-4487-a8b7-0d974173d19b)
 
-		
+
+	- we give our Netlist file and testbench to our simuluator iverilog.
+   	- this gives us the Vcd (value change dump file), This vdc file is then loaded into GTKwave form viewer.
+	- which gives us a stimulus as output
 
       -  NOTE: this stimulus should be same as the output observed during RTL simulation.
       -  NOTE: the set of Primary inputs/Primary outputs will remain same between the RTL design and the Synthesized Netlist where (same testbench can be used).

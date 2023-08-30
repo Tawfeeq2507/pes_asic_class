@@ -578,7 +578,33 @@ this will give us a clear view of the design file:
 <summury>Introduction to Yosys</summury>
 
 - **What is Synthesizer?**
+   -  a synthesizer refers to a software tool or program that takes a high-level hardware description of a digital circuit, typically written in a hardware description language (HDL) such as VHDL or Verilog, and translates it into a lower-level representation that can be implemented on specific hardware devices like FPGAs (Field-Programmable Gate Arrays) or ASICs (Application-Specific Integrated Circuits).
+   -  in simple words Synthesizer is tool used for converting RTL to Netlist
+   -  In this course "Yosys" is the Synthesizer used
+ 
+	
+
+   - here we apply design and .lib to Yosys to get the netlist file:
+   - "Netlist file" is the representation of the design in standard cells in the .lib
    - 
+ 
+   -  **What is Yosys?**
+        - Yosys is an open-source framework and tool suite for RTL (Register-Transfer Level) synthesis and formal verification of digital circuits.
+    
+        - **Yosys Setup:**
+ 
+        - in Yosys setup we use the following commands to use the simulator and run it-
+    
+             - `read_verilog` command: to read the design
+             - `read_liberty` command: to read the .lib
+             - `write_verilog` command: to write the netlist file
+ 
+	- executing the write_verilog gives us the netlist file
+
+   	
+
+ - **Verification of Synthesis:**
+ - 
 
 
 </details>

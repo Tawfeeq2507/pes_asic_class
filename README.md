@@ -636,6 +636,7 @@ this will give us a clear view of the design file:
   	  	- the design is converted into Gates and the connections are made between the Gates
   	  	- this is given out as a file called Netlist
 
+			![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/0ed6c2b0-e19d-41ee-8a5a-2aa588967576)
 
 
 	+ **What is .lib ?**

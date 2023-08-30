@@ -582,11 +582,10 @@ this will give us a clear view of the design file:
    -  in simple words Synthesizer is tool used for converting RTL to Netlist
    -  In this course "Yosys" is the Synthesizer used
  
-	
+	![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/8a9f006d-0372-4bd7-a953-b16d96305ac2)
 
    - here we apply design and .lib to Yosys to get the netlist file:
    - "Netlist file" is the representation of the design in standard cells in the .lib
-   - 
  
    -  **What is Yosys?**
         - Yosys is an open-source framework and tool suite for RTL (Register-Transfer Level) synthesis and formal verification of digital circuits.
@@ -601,7 +600,7 @@ this will give us a clear view of the design file:
  
 	- executing the write_verilog gives us the netlist file
 
-   	
+   	![image](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/cf3d86b3-c0a7-4485-bef1-b15e6de0f54c)
 
  - **Verification of Synthesis:**
  - 

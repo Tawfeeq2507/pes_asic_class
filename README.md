@@ -689,6 +689,50 @@ this will give us a clear view of the design file:
 <details>
 <summary> Yosys good_mux  </summary>	
 
+**1st Step:** to run Yosys in terminal type **Yosys** in the verilog_files directory.
+
+**2nd Step:** once in yosys we need to read the liberty files which can be done using- 
+`read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+
+**3rd Step:** Now we read the design file that we want to synthesize-
+`read_verilog good_mux.v`
+
+**4th Step:** to synthesize the design file type-
+`synth -top good_mux`
+
+![Screenshot from 2023-08-27 10-15-15](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/b9ca010b-20ff-4a9c-9886-e35dad51b278)
+
+**5th Step:** to generate the Netlist type-
+`abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+
+  doing this gives us a report of what cells are used and the number of input and output signals. 
+
+  ![Screenshot from 2023-08-27 10-19-38](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/6d6a0706-d22d-4a1b-bf8d-0b506cc9673c)
+
+**6th Step:** to see the Gate level logic circuit type-
+`show`
+
+  ![Screenshot from 2023-08-27 10-21-22](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/ce3b3485-2b57-4892-9a5b-c062eeefd020)
+
+**7th Step:** to write the netlist file- 
+`write_verilog good_mux_net.v`
+`!vim good_mux_net.v`
+
+![Screenshot from 2023-08-27 10-33-28](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/ae6386c0-043e-42cc-a4a3-6169abeba188)
+
+**8th Step:** to make it in a more simplified form type-
+`write_verilog -noattr good_mux_net.v`
+`!vim good_mux_net.v`
+
+![Screenshot from 2023-08-27 10-34-25](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/d90b48d4-f202-4ba4-8b7c-3ffa80d4dc0f)
+
+</details>
+
+
+
+
+
+
 
 
 

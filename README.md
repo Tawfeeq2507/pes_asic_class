@@ -615,9 +615,78 @@ this will give us a clear view of the design file:
       -  NOTE: this stimulus should be same as the output observed during RTL simulation.
       -  NOTE: the set of Primary inputs/Primary outputs will remain same between the RTL design and the Synthesized Netlist where (same testbench can be used).
 
-
 </details>
 
+<details>
+<summary> Introduction to Logic Synthesis </summary>
+
++ **What is Logic Synthesis?**
+	- Logic synthesis is the process of converting a high-level hardware description into a netlist of lower-level digital logic gates, flip-flops, and interconnections.
+ 	- Logic synthesis is a critical step in the digital design process because it bridges the gap between a high-level hardware description and the physical implementation on specific hardware devices.
+  	-  It allows designers to work at a higher level of abstraction, focusing on functionality and behavior, while leaving the details of hardware implementation to the synthesis tool.
+
+	+ **What is RTL design?**
+   		- RTL, which stands for Register-Transfer Level, is a level of abstraction used in digital circuit design to describe the behavior and functionality of a digital system.
+  		- RTL design is a critical step in the development of digital systems because it provides a structured and systematic way to design and describe the behavior of complex digital circuits, making them easier to understand, simulate, verify, and implement in hardware.
+  		-  it is the behavioral representation of the required specification where the specification is written in a HDL or Verilog language.
+
+  	+ **What is Synthesis?**
+  	  	- "synthesis" refers to the process of transforming a high-level hardware description written in a hardware description language (HDL), such as Verilog or VHDL, into a lower-level netlist representation that can be implemented on specific hardware devices like FPGAs (Field-Programmable Gate Arrays) or ASICs (Application-Specific Integrated Circuits).
+  	  	- it is a RTL to Gate level translation.
+  	  	- the design is converted into Gates and the connections are made between the Gates
+  	  	- this is given out as a file called Netlist
+
+
+
+	+ **What is .lib ?**
+   		- ".lib" file is a library file that contains information about the electrical characteristics and timing specifications of standard cells or other digital logic elements.
+  		- ".lib" files are essential for accurate digital circuit design, as they provide the necessary data for EDA tools to perform synthesis, optimization, and timing analysis.
+  		- in simple words .lib is a collection of logic modules.
+  		- it includes basic logic gates like AND, OR, NOT, etc.
+  		- it has different flavours of same GATE.
+
++ **Why we need Different flavours of Gate?**
+	- Different flavors or variants of logic gates are designed to meet various requirements and trade-offs in digital circuit design.
+	- These variations enable trade-offs between factors like speed, power, area, and reliability, ensuring that digital circuits can be optimized for their intended applications.
+	- in order for our circuit to be fast and quick we keep the clock frequency very high but the time period of clock should be as low as possible giving a relation between them,given by
+
+ 	                `F clock(max)=1/T clock(min)`
+
++ **Why do we need Cells?**
+  	- particularly standard cells or library cells, are integral to modern digital circuit design. They offer a structured and efficient way to build digital circuits, allowing designers to leverage pre-designed, well-characterized components to achieve their design goals while saving time and resources.
+  	- there are two types of cells Fast cells and Slow cells.
+
++ **What are fast cells and slow cells?**
+  
+    - "fast cells" refer to a specific type of standard cell library cells that are optimized for high-speed operation. These cells are designed to meet stringent timing requirements and are often used in applications where the speed of the circuit is critical.
+  - we use fast cells for High-Speed Operation,Reduced Propagation Delay,Design Complexity,etc
+  - but we need to ensure to balance their benefits with potential trade-offs in power consumption and design complexity and to ensure there is no SETUP time issues in our circuit.
+
+  - "slow cells" are a type of standard cell library cells that are optimized for low-power operation rather than high-speed performance.
+  - These cells are designed to minimize power consumption at the expense of speed.
+  - hey are a valuable resource in digital circuit design for applications where power efficiency is critical, and where performance can be sacrificed to achieve extended battery life or reduced power consumption.
+  - we choose slow cells when balancing power, speed, and area trade-offs to meet specific design requirements as to ensure there are no HOLD time issues in our circuit.
+
+  - hence we need cells that work fast to meet the required performance and we need cells that work slow to meet HOLD time issues.
+
++ **Faster Cells vs Slower Cells**
+  - Load in digital circuit is of Capacitence.
+  - Faster the charging or dicharging of capacitance, lesser is the cell delay.
+  - However, for a quick charge/ discharge of capacitor, we need transistors capable of sourcing more current i.e, we need **wide transistors**.
+  - Wider transistors have lesser delay but consume more area and power.
+  - Narrow transistors have more delay but consume less area and performance.
+  - Faster cells come with a cost of area and power.
+ 
+- hence:
+  	- more use of faster cells we get a bad circuit in terms of power and area and hold time violations.
+  	- more use of slower cells sluggish is the circuit does not meet the performance needs.
+ 
+</details>
+
+## Labs using Yosys and Sky130 PDKs
+
+<details>
+<summary> Yosys good_mux  </summary>	
 
 
 

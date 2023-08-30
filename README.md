@@ -728,6 +728,15 @@ this will give us a clear view of the design file:
 
 </details>
 
+# Day-4
+## Introduction to Timing Dot Libs
+
+<details>
+<summary> Introduction to Dot Lib </summary>	
+
+
+
+
 
 
 

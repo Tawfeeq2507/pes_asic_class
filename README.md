@@ -729,10 +729,58 @@ this will give us a clear view of the design file:
 </details>
 
 # Day-4
-## Introduction to Timing Dot Libs
+## Introduction to Timing .Libs
 
 <details>
-<summary> Introduction to Dot Lib </summary>	
+<summary> Introduction to .Lib </summary>	
+
++ What a .Lib contains?
+
+- .lib file typically refers to a library file that contains information related to digital cell libraries or standard cell libraries.
+- These ".lib" files are used by electronic design automation (EDA) tools, such as synthesis tools and static timing analysis tools, to perform various tasks in the digital IC design process, including logic synthesis, timing analysis, and power optimization.
+
++ Contents of a .Lib file:
+  
+	- To view the contents in the .lib type  `vim ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+ 
+	![Screenshot from 2023-08-27 11-15-44](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/485fd020-8f2d-4506-92a5-ddd7971630be)
+
+	- in this we see that the the first line tells us the name of the library that is ("sky130_fd_sc_hd__tt_025C_1v80").
+	- tt : indicates variations due to process, it indicates **Typical Process**.
+	- 025C : indicates the variations due to temperatures where the silicon will be used.
+	- 1v80 : indicates the variations due to the voltage levels where the silicon will be incorporated.
+  
+	- when we look into library there are 3 words coming into picture that is PVT:
+      	  
+	- PVT-( Process, Voltage, Tempreture)
+	- these 3 are very important for a design to work.
+	- Process- is the variations due to fabrication.
+	- Voltage- is the variations due to voltage.
+	- Tempreture- is the variations due to tempreture.
+	- all these 3 determine how our silicon is going to work. ie( faster or slower)
+
+	- it also tells us the technology used ex: here the technology used is Cmos technology.
+	- also mentions about the delay model here the delay model is table lookup.
+	- mentions us the voltage process and tempreture units.
+
+	- since .Lib is a bucket of cells, we have different flavours of different cells and different flavours of same cells.
+
+	![Screenshot from 2023-08-27 11-18-43](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/95e49ca4-4cec-40dd-9d01-732aeebdffd6)
+
+	- we see that for each cell the .lib shows its features ex: leakage power, timing information, area it occupies and etc.
+
+</details>
+
+## Hierarchical vs Flat Synthesis
+
+<details>
+<summary> Hierarchical Synthesis and Flat Synthesis </summary>	
+
++ What is Hierarchical Synthesis?
+
+  - Hierarchical synthesis is a technique used in digital circuit design and synthesis to manage and optimize complex designs by breaking them down into smaller, more manageable and reusable hierarchical blocks or modules.
+  -  Instead of designing the entire circuit as a single monolithic entity, designers use a hierarchical approach to organize the design into multiple levels of abstraction.
+  -  Each level represents a different degree of detail and functionality, and the levels are interconnected to form the complete design.
 
 
 

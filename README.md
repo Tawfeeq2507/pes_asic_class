@@ -782,6 +782,68 @@ this will give us a clear view of the design file:
   -  Instead of designing the entire circuit as a single monolithic entity, designers use a hierarchical approach to organize the design into multiple levels of abstraction.
   -  Each level represents a different degree of detail and functionality, and the levels are interconnected to form the complete design.
 
++ the file used in this lab is `multiple_modules.v`:
+
+	![Screenshot from 2023-08-27 11-51-01](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/95ca0ef5-379f-4552-b8ae-1f876b43d945)
+
+`vim multiple_modules.v`
+``` verilog
+module sub_module2 (input a, input b, output y);
+        assign y = a | b;
+endmodule
+
+module sub_module1 (input a, input b, output y);
+        assign y = a&b;
+endmodule
+
+
+module multiple_modules (input a, input b, input c , output y);
+        wire net1;
+        sub_module1 u1(.a(a),.b(b),.y(net1));  //net1 = a&b
+        sub_module2 u2(.a(net1),.b(c),.y(y));  //y = net1|c ,ie y = a&b + c;
+endmodule
+
+```
+
+- this multiple_modules.v has 2 submodules `sub_module1` and `sub_module2`where sub_module1 is an AND gate and sub_module2 an OR gate:
+
+![Screenshot from 2023-08-27 11-51-14](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/8185959d-f4a6-439f-b699-6c3c2fd90ca3)
+
+- here in multiple_modules.v we see that we have 3 inputs (a,b,c) and an output y
+- inputs a and b are connected to sub_module1 and its ouput is connected to sub_module2 with another input as c and its output is given to y.
+
++ now we synthesize it:
+
+- to synthesize launch **yosys**
+- read the libirty files using `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- read the verilog file using `read_verilog multiple_modules.v`
+- now synthesise it using `synth -top multiple_modules`
+
+![Screenshot from 2023-08-27 11-54-25](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/040ae662-fe84-49d6-a8f3-8d45612fd15a)
+
+![Screenshot from 2023-09-03 01-24-49](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/52e0886d-b3ef-4a59-a652-3977a9d28d87)
+
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- to view the netlis design type `show multiple_modules.v`
+
+![Screenshot from 2023-09-03 01-26-58](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/71673c6e-63f3-4f97-b6b6-0b74bb02ca07)
+
+- to write out the Netlist we type `write_verilog -noattr multiple_modules_hier.v`
+- !vim multiple_modules_hier.v
+
+![Screenshot from 2023-08-27 12-09-54](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/81271576-218f-4ce0-9c9f-2e2baee05878)
+
+
++ What is Flat Synthesis?
+- flat or flattened Symthesis is a process of Flattening a netlist in the context of electronic design refers to the process of transforming a hierarchical representation of a digital circuit into a single-level, non-hierarchical representation.
+- This is typically done as part of the digital design process, especially during synthesis and optimization stages.
+- 
+
+
+
+
+
+
 
 
 

@@ -1,5 +1,6 @@
-verlilog
-```
+vim dff_asyncres_syncres.v
+
+``` verlilog
 module dff_asyncres_syncres ( input clk , input async_reset , input sync_reset , input d , output reg q );
 always @ (posedge clk , posedge async_reset)
 begin

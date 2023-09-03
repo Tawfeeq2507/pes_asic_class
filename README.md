@@ -824,7 +824,7 @@ endmodule
 ![Screenshot from 2023-09-03 01-24-49](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/52e0886d-b3ef-4a59-a652-3977a9d28d87)
 
 - abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-- to view the netlis design type `show multiple_modules.v`
+- to view the netlist design type `show multiple_modules.v`
 
 ![Screenshot from 2023-09-03 01-26-58](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/71673c6e-63f3-4f97-b6b6-0b74bb02ca07)
 
@@ -835,9 +835,203 @@ endmodule
 
 
 + What is Flat Synthesis?
-- flat or flattened Symthesis is a process of Flattening a netlist in the context of electronic design refers to the process of transforming a hierarchical representation of a digital circuit into a single-level, non-hierarchical representation.
-- This is typically done as part of the digital design process, especially during synthesis and optimization stages.
-- 
+
+	- flat or flattened Symthesis is a process of Flattening a netlist in the context of electronic design refers to the process of transforming a hierarchical representation of a digital circuit into a single-level, non-hierarchical representation.
+	- This is typically done as part of the digital design process, especially during synthesis and optimization stages.
+	-  This can be beneficial for synthesis, optimization, simulation, and layout tasks, but it also comes with challenges related to increased complexity and the loss of hierarchical information.
+ 
+
++ to write flattened netlist:
+
+   	- launch **yosys**
+	- read the libirty files using `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+	- read the verilog file using `read_verilog multiple_modules.v`
+	- now synthesise it using `synth -top multiple_modules`
+	- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+	- to write out a flattened netlist type `flatten`
+	- `write_verilog -noattr multiple_modules_flat.v`
+	- `!vim multiple_modules_flat.v`
+
+	![Screenshot from 2023-08-27 12-20-41](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/65f6ee25-c9d1-47cf-a942-8e92dfbab8e8)
+
+
++ when we try to see the difference between both the Netlist `multiple_modules_flat.v` and `multiple_modules_hier.v`:
+
+  	- we see that the hierarchy of submodule1 and submodule2 are preserved in hier netlist while in flat netlist we dont see them its a single netlist.
+  	- these hierarchys are flattened out.
+  	- we see the direct instructions of AND and OR gate in the module called multiple_modules.
+ 
+  	  ![Screenshot from 2023-08-27 12-18-07](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/f6e5a27e-9b75-4054-b6a0-0369396db13a)
+
++ To do a Submodule synthesis:
+
+ 	- launch **yosys**
+	- read the libirty files using `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+	- read the verilog file using `read_verilog multiple_modules.v`
+	- now synthesise it using `synth -top sub_module1`
+
+	![Screenshot from 2023-08-27 12-23-14](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/4920d16e-f18e-4976-b719-88f701f731e4)
+
+- here we see that it is inferring a sub_module1 as it uses an AND gate.
+
+	- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+	- `show`
+
+ 	![Screenshot from 2023-08-27 12-24-06](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/016a4275-e8d4-4331-b0db-4cc214e05919)
+
+</details>
+
+## Various Flop Coding Styles and Optimization
+
+<details>
+<summary> Why Flops and Flop Coding Styles</summary>	
+
+**Why do we need a Flop?**
+
+- In digital electronic circuits and digital system design, a "flop" typically refers to a flip-flop, which is a fundamental building block used for storing and manipulating binary information.
+- Flip-flops are crucial components in digital logic circuits and serve several essential purposes such as Memory Element, Synchronization, Sequential Logic, Clocking, Edge Detection, Pipelining, State Storage, Memory Cells.
+- flip-flops are essential components in digital electronics because they provide the means to store, manipulate, and control binary information, enabling the design and operation of a wide range of digital systems and devices, from simple registers to complex microprocessors and digital signal processors.
+- Their role in sequential logic, synchronization, and memory storage is fundamental to the functioning of digital circuits and systems.
+- It's a type of sequential logic element that stores binary information (0 or 1) and can change its output based on clock signals and input values.
+- There will be multiple glitches for multiple combinational circuits.
+- Hence, we need flops to store the data from the combinational circuits.
+- When a flop is used, the output of combinational circuit is stored in it and it is propagated only at the posedge or negedge of the clock so that the next combinational circuit gets a glitch free input thereby stabilising the output.
+- There are of two types synchronous and asynchronous.
+
+**D Flip-Flop with Asynchronous Reset**
+
+- A D flip-flop with an asynchronous reset is a type of digital flip-flop circuit that includes a "D" (data) input and an asynchronous reset input. It is a fundamental building block in digital electronics and sequential logic circuits.
+- a D flip-flop with asynchronous reset stores data at the input (D) and transfers it to the output (Q) on a clock edge (depending on the flip-flop type).
+- The asynchronous reset input (R) provides a means to force the output to a known state independently of the clock and data input, which is particularly useful for initializing or resetting digital circuits.
+- The precise behavior and timing of the flip-flop depend on its specific type and implementation.
+- in simple terms:
+	- When the reset is high, the output of the flip-flop is forced to 0, irrespective of the clock signal.
+ 	- Else, on the positive edge of the clock, the stored value is updated at the output.
+
+- `vim dff_asyncres_syncres.v`
+
+![Screenshot from 2023-09-03 19-35-40](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/abaa27ed-f752-4568-8d8e-2aed5fe27bd2)
+
+**D Flip-Flop with Asynchronous set**
+
+- A D flip-flop with an asynchronous set input, also known as a D flip-flop with SET, is a digital logic circuit that combines the functionality of a D flip-flop with the capability to asynchronously set its output (Q) to a high logic level (usually 1) at any time, regardless of the clock signal and data input (D).
+- in simple terms:
+	- When the set is high, the output of the flip-flop is forced to 1, irrespective of the clock signal.
+	- Else, on positive edge of the clock, the stored value is updated at the output.
+
+- `vim dff_async_set.v`
+
+![Screenshot from 2023-09-03 19-44-44](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/5adae067-f728-4661-bcc1-d28d3a078060)
+
+**D Flip-Flop with Synchronous Reset**
+
+- A D flip-flop with synchronous reset is a digital logic circuit that combines the functionality of a D flip-flop with a synchronous reset input. In this configuration, the flip-flop has a "D" (data) input, a clock input, and a reset input that operates synchronously with the clock signal.
+- in simple terms:
+	- When the reset is high on the positive edge of the clock, the output of the flip-flop is forced to 0.
+	- Else, on the positive edge of the clock, the stored value is updated at the output.
+
+-  `vim dff_syncres.v`
+
+![Screenshot from 2023-09-03 19-49-59](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/ae1ae2f6-ec7e-485d-8cc9-cb6b0faf33c6)
+
+</details>
+
+<details>
+<summary> Lab Flop Synthesis Simulations </summary>	
+
+
+**D Flip-Flop with Asynchronous Reset**
+
++ **Simulation**
+
+![Screenshot from 2023-08-27 15-36-55](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/f2cf4684-2f6a-4bae-9eef-3121df9db264)
+
+  - `gtkwave tb_dff_asyncres.vcd`
+
+![Screenshot from 2023-08-27 15-39-46](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/456da409-7056-41bd-88a8-27da609d098a)
+
++ **Synthesis**
+
+  - `cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files`
+  - `yosys`
+  - `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+  - `read_verilog dff_asyncres.v`
+  - `synth -top dff_asyncres`
+  - `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+  - `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+  - `show`
+ 
+![Screenshot from 2023-08-27 16-02-12](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/594d460d-8956-449e-8033-e2a0dd080824)
+
+**D Flip_Flop with Asynchronous Set**
+
++ **Simulation**
+
+![Screenshot from 2023-08-27 15-44-22](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/d30e9b85-c31e-4ade-8b49-1133be2bc570)
+
+- `gtkwave tb_dff_async_set.vcd`
+
+![Screenshot from 2023-08-27 15-47-11](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/c3454804-50c0-4796-bfee-bc3286887d26)
+
++ **Synthesis**
+  - `cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files`
+  - `yosys`
+  - `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+  - `read_verilog dff_async_set.v`
+  - `synth -top dff_async_set`
+  - `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+  - `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+  - `show`
+ 
+![Screenshot from 2023-08-27 16-06-02](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/5dfd04df-5881-482d-89bb-21baa4700419)
+
+**D Flip-Flop with Synchronous Reset**
+
++ **Simulation**
+
+![Screenshot from 2023-08-27 15-51-14](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/3cf31180-378e-4c6a-8caf-ed3d73c0ec14)
+
+- `gtkwave tb_dff_syncres.vcd`
+
+![Screenshot from 2023-08-27 15-56-10](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/095d6c5c-d58e-4f7a-b25e-42e9599f6781)
+
++ **Synthesis**
+  - `cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files`
+  - `yosys`
+  - `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+  - `read_verilog dff_syncres.v`
+  - `synth -top dff_syncres`
+  - `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib `
+  - `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+  - `show`
+
+![Screenshot from 2023-09-03 20-17-28](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/807ff240-1f99-48b5-a410-757f852255cc)
+
+</details>
+
+<details>
+<summary> Interesting Optimisations </summary>
+
+
+
+
+  	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

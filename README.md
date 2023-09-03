@@ -927,7 +927,7 @@ endmodule
 
 - A D flip-flop with synchronous reset is a digital logic circuit that combines the functionality of a D flip-flop with a synchronous reset input. In this configuration, the flip-flop has a "D" (data) input, a clock input, and a reset input that operates synchronously with the clock signal.
 - in simple terms:
-	- When the reset is high on the positive edge of the clock, the output of the flip-flop is forced to 0.
+	- When the reset is high on the positive edge of the clock, the output of the flip-flop is forced to 0.</details>
 	- Else, on the positive edge of the clock, the stored value is updated at the output.
 
 -  `vim dff_syncres.v`
@@ -1011,6 +1011,94 @@ endmodule
 
 <details>
 <summary> Interesting Optimisations </summary>
+
+- `vim mult_2.v`
+
+![Screenshot from 2023-08-27 16-12-23](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/5199fce0-1174-449e-b4ff-a9c9483731f4)
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog mult_2.v`
+- `synth -top mul2`
+
+![Screenshot from 2023-08-27 17-29-21](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/c39d68dc-a6fc-4af5-ae01-c3ba85e7295a)
+
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-27 17-31-02](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/72586be9-72b3-4ef3-a8fe-7b6219acd93b)
+
+- `write_verilog -noattr mul2_netlist.v`
+- `!gvim mul2_netlist.v`
+
+![Screenshot from 2023-08-27 17-36-35](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/a865c4b5-a9f0-4f27-afc7-b6ff2d78a4b2)
+
+- `vim mult_8.v`
+
+![Screenshot from 2023-08-27 16-12-10](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/1ab8f82d-e7bf-4d56-8c8b-8e158631c4a4)
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  `
+- `read_verilog mult_8.v`
+- `synth -top mult8`
+
+![Screenshot from 2023-08-27 17-41-21](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/9c0c0e3c-6718-45dd-abc2-9a48da9837f0)
+
+
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-27 17-42-08](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/dbc409f8-6de1-4a0c-bb14-40069445768a)
+
+- `write_verilog -noattr mult8_netlist.v`
+- `!gvim mult8_netlist.v`
+
+![Screenshot from 2023-08-27 17-46-38](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/b09f3790-570e-4598-95b6-36b545e0a24d)
+
+</details>
+
+# Day 5
+## Introduction to Optimisations 
+
+<details>
+<summary> Combinational Optimisation </summary>
+
+- Combinational logic optimization refers to the process of improving the efficiency, performance, and resource utilization of a digital combinational circuit.
+- Combinational circuits are a type of digital logic circuit where the output is solely determined by the current input values, and there are no feedback loops or memory elements like flip-flops.
+-  Optimising the combinational logic circuit is squeezing the logic to get the most optimized digital design so that the circuit finally is area and power efficient.
+- Techniques for Optimisations:
+  - **Constant propagation** is an optimization technique used in compiler design and digital circuit synthesis to improve the efficiency of code and circuit implementations by replacing variables or expressions with their constant values where applicable.
+  - **Boolean logic optimization**, also known as logic minimization or Boolean function simplification, is a process in digital design that aims to simplify Boolean expressions or logic circuits by reducing the number of terms, literals, and gates required to implement a given logical function.
+ 
+</details>
+
+<details>
+<summary> Sequential Logic Optimisations </summary>	
+
+- Sequential logic optimization refers to the process of improving the efficiency, performance, and resource utilization of digital sequential circuits.
+- unlike combinational logic circuits, sequential circuits have memory elements, such as flip-flops, which store information and provide feedback.
+- Sequential logic is commonly used in applications that require memory, state retention, and control over time.
+- The main goals of sequential logic optimization are similar to those of combinational logic optimization but also include considerations related to state transitions and timing.
+- Optimizing sequential logic is crucial in ensuring that digital circuits meet timing requirements, consume minimal power, and occupy the least possible area while maintaining correct functionality.
+- Optimisation methods:
+  - **Sequential constant propagation**, also known as constant propagation across sequential elements, is an optimization technique used in digital design to identify and propagate constant values through sequential logic elements like flip-flops and registers. This technique aims to replace variable values with their known constant values at various stages of the logic circuit, optimizing the design for better performance and resource utilization.
+  - **State optimization**, also known as state minimization or state reduction, is an optimization technique used in digital design to reduce the number of states in finite state machines (FSMs) while preserving the original functionality.
+  - **Sequential logic cloning**, also known as retiming-based cloning or register cloning, is a technique used in digital design to improve the performance of a circuit by duplicating or cloning existing registers (flip-flops) and introducing additional pipeline stages. This technique aims to balance the critical paths within a circuit and reduce its overall clock period, leading to improved timing performance and better overall efficiency.
+  - **Retiming** is an optimization technique used in digital design to improve the performance of a circuit by repositioning registers (flip-flops) along its paths to balance the timing and reduce the critical path delay. The primary goal of retiming is to achieve a shorter clock period without changing the functionality of the circuit.
+ 
+</details>
+
+## Combinational Logic Optimisations
+
+<details>
+<summary> opt_check </summary>	
+
+
+
+ 
+
+
+
+
+
 
 
 

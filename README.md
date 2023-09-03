@@ -923,6 +923,17 @@ endmodule
 
 ![Screenshot from 2023-09-03 19-44-44](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/5adae067-f728-4661-bcc1-d28d3a078060)
 
+ **D Flip-Flop with Synchronous Reset**
+
+ - A D flip-flop with synchronous reset is a digital logic circuit that combines the functionality of a D flip-flop with a synchronous reset input. In this configuration, the flip-flop has a "D" (data) input, a clock input, and a reset input that operates synchronously with the clock signal.
+ - in simple terms:
+	- When the reset is high on the positive edge of the clock, the output of the flip-flop is forced to 0.</details>
+	- Else, on the positive edge of the clock, the stored value is updated at the output.
+
+ - `vim dff_syncres.v`
+
+ ![Screenshot from 2023-09-03 19-49-59](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/ae1ae2f6-ec7e-485d-8cc9-cb6b0faf33c6)
+
 </details>
 
 <details>

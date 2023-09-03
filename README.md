@@ -1342,61 +1342,203 @@ the files we will be using in this are dff_const files shown below:
 </details>
 
 
+## Sequential Optimisations for Unused Outputs
+
+<details>
+<summary> counter_opt(1,2)</summary>
+
++ **counter_opt1**
+
+- `vim counter_opt.v`
+
+![Screenshot from 2023-08-28 19-59-30](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/f5138423-e533-4e6e-ad7e-1a176ae79d01)
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog counter_opt.v`
+- `synth -top counter_opt`
+- `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-28 21-41-31](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/b229cee2-5753-47cc-bf82-887e11bbe307)
+
+![Screenshot from 2023-08-28 21-41-56](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/5c77a654-d444-4734-afb6-9ddcfc4d9be0)
+
++ **counter_opt2**
+
+- `vim counter_opt2.v`
+
+![Screenshot from 2023-08-28 21-45-35](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/05a369d8-0f18-42ce-84ce-4407850da0c2)
 
 
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog counter_opt2.v`
+- `synth -top counter_opt2`
+- `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-28 21-50-11](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/8d84fcba-9c15-4529-b35d-26461ab319ca)
+
+![Screenshot from 2023-08-28 21-53-50](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/d3de6454-388c-4c36-b9f9-be1f3f5169a7)
+
+</details>
+
+# Day 6
+## GLS Synthesis-Simulation Mismatch and Blocking Non-blocking Statements
 
 
+<details>
+<summary> GLS Concepts And Flow Using Iverilog </summary>	
+
++ **(GLS) Gate Level Simualtion**
+
+	- Gate-level simulation is a type of digital logic simulation used in the field of digital design and electronic circuit testing. It involves simulating the behavior of a digital circuit at the gate-level of abstraction.
+	- In digital design, circuits are typically built using basic logic gates like AND gates, OR gates, NAND gates, NOR gates, XOR gates, and flip-flops.
+	- Gate-level simulation operates at this lower level of abstraction and is often used to verify the correctness of a design before it is implemented in hardware.
+	- Gate-level simulation is a technique used in digital design and verification to validate the functionality of a digital circuit at the gate-level implementation.
+	- It involves simulating the circuit using the actual logic gates and flip-flops that make up the design, as opposed to higher-level abstractions like RTL (Register Transfer Level) descriptions.
+	- This type of simulation is typically performed after the logic synthesis process, where a high-level description of the design is transformed into a netlist of gates and flip-flops.
+	- We perform this to verify logical correctness of the design after synthesizing it. Also ensuring the timing of the design is met.
+  
+<img width="608" alt="image" src="https://github.com/Veda1809/pes_asic_class/assets/142098395/6298b067-2f45-4dbc-ad25-762ac3d8be63">
+
++ **Synthesis-Simulation Mismatch**
+  
+	- Synthesis-simulation mismatch refers to a situation in digital design and electronic design automation (EDA) where there are discrepancies or inconsistencies between the behavior of a digital circuit as described in a hardware description language (HDL) during simulation and its actual behavior after synthesis and implementation on hardware.
+  	- This discrepancy can occur due to various reasons, such as timing issues, optimization conflicts, and differences in modeling between the simulation and synthesis tools.
+	- This mismatch is a critical concern in digital design because it indicates that the actual hardware implementation might not perform as expected, potentially. 
+
++ **Blocking Statements**
+
+	- Blocking statements are a type of statement used in hardware description languages (HDLs) like Verilog and VHDL for specifying sequential and concurrent behavior within digital circuits.
+	- Blocking statements are used to define operations that are executed in a deterministic order, meaning one operation is completed before the next begins.
+	- Blocking statements are executed sequentially in the order they appear in the code and have an immediate effect on signal assignments.
+
++ **Non-Blocking Statements**
+
+	- Non-blocking statements are a type of statement used in hardware description languages (HDLs) like Verilog and VHDL to describe concurrent assignments within digital circuits.
+	- Non-blocking assignments allow multiple assignments to be scheduled to occur simultaneously, enabling the modeling of combinational logic and parallel execution of statements within the same procedural block.
+	- They are particularly useful for describing the behavior of flip-flops and sequential logic in a way that resembles hardware behavior.
+	- Non-blocking assignments are used to model concurrent signal updates, where all assignments are evaluated simultaneously and then scheduled to be updated at the end of the time step.
 
 
++ **Caveats with Blocking Statements**
+
+	- Blocking statements are commonly used in hardware description languages (HDLs) like Verilog and VHDL to describe sequential behavior and to specify the execution order of statements. While they are essential for modeling certain aspects of digital circuits, there are some important caveats and considerations to keep in mind when using blocking statements:
+	- Sequential Execution, Inaccurate Modeling of Combinational Logic, Sensitivity Lists, Lack of Parallelism,Race Conditions,Behavioral Differences.
+	- To mitigate these caveats and ensure accurate modeling of digital circuits, it's essential to understand the differences between blocking and non-blocking assignments, choose the appropriate assignment type for each scenario, and carefully design and verify your code.
+
+</details>
 
 
+## Labs on GLS and Synthesis-Simulation Mismatch
+
+<details>
+<summary> ternary_operator_mux </summary>	
+
+- `vim teranry_operator_mux.v`
+
+![Screenshot from 2023-08-28 23-20-19](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/a9ffb286-516d-4cf7-a374-3149229e4ef2)
+
+**Simulation**
+
+![Screenshot from 2023-08-28 23-22-26](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/7de0b3b5-f5fe-4c87-9acc-5921f504f768)
+
+![Screenshot from 2023-08-28 23-23-19](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/c1dcd584-fb51-4594-b871-ecdd6d495e2d)
 
 
+**Synthesis**
+
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog ternary_operator_mux.v`
++ `synth -top ternary_operator_mux`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+![Screenshot from 2023-08-28 23-24-23](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/f15de854-95cf-4836-b303-a7714e3889e7)
+
+![Screenshot from 2023-08-28 23-25-50](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/b0782f5e-9369-44e9-8649-40600d235542)
+
+**GLS to Gate-Level Simulation**
+
+![Screenshot from 2023-08-28 23-28-06](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/827e2ac2-1ab4-4e2c-b0f9-e8fc23535fe2)
+
+![Screenshot from 2023-08-28 23-30-05](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/4b55463a-fde0-409a-9d8e-05c27e0cb1c7)
+
+</details>
+
+<details>
+<summary> bad_mux </summary>	
+
+- `vim bad_mux.v`
+
+![Screenshot from 2023-08-28 23-20-27](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/41a8833b-ff77-4a6f-a5f4-259021d95d2e)
 
 
+**Simualtion**
+
+![Screenshot from 2023-08-28 23-36-25](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/abf1ce5d-e043-42e9-b105-1bb61e9770f0)
 
 
+![Screenshot from 2023-08-28 23-38-37](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/2f7cfdf4-005e-4ac4-8e69-d1f8c61950de)
 
 
+**Synthesis**
+
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog bad_mux.v`
++ `synth -top bad_mux`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+![Screenshot from 2023-08-28 23-41-25](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/669428eb-3c2b-4e82-81a5-64fdadd36384)
+
+![Screenshot from 2023-09-04 00-08-56](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/f2786a74-8e4f-4551-b7d6-fca8a82e4d99)
+
+**GLS to Gate-Level Simulation**
+
+![Screenshot from 2023-08-28 23-43-46](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/b75efeb5-0434-4a68-b1bd-04866de20ba7)
+
+![Screenshot from 2023-08-28 23-45-15](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/abb3979f-87fb-4271-b884-d46c6e4b02dd)
+
+</details>
+
+## Labs on Synth-Sim Mismatch for Blocking Statement
+
+<details>
+<summary> blocking_caveat </summary>	
+
+- `vim blocking_caveat.v`
+
+![Screenshot from 2023-08-29 12-54-33](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/2a740abe-81b0-4944-80c3-851fdd336d22)
+
+**Simualtion**
+
+- `iverilog blocking_caveat.v tb_blocking_caveat.v`
+- `./a.out`
+- `gtkwave tb_blocking_caveat.vcd`
+
+![Screenshot from 2023-08-29 12-57-57](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/d10d69a3-984c-4285-9603-9a52ca168b2a)
 
 
+**Synthesis**
 
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog blocking_caveat.v`
+- `synth -top blocking_caveat`
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
 
+![Screenshot from 2023-08-29 13-00-21](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/7c9d5116-b2ec-4ba9-a050-560b605f8002)
 
+**GLS to Gate-Level Simulation**
 
+- `iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat_net.v tb_blocking_caveat.v`
+- `./a.out`
+- `gtkwave tb_blocking_caveat.vcd`
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Screenshot from 2023-08-29 13-03-30](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/77970316-0f35-49b0-af60-1a8fd0b04d9f)
 
 
 

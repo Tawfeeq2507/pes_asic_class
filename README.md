@@ -939,7 +939,6 @@ endmodule
 <details>
 <summary> Lab Flop Synthesis Simulations </summary>	
 
-
 **D Flip-Flop with Asynchronous Reset**
 
 + **Simulation**

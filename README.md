@@ -1085,21 +1085,261 @@ endmodule
 ## Combinational Logic Optimisations
 
 <details>
-<summary> opt_check </summary>	
+<summary> opt_checks(1,2,3,4)</summary>	
+
+- the files we will be using in this is Opt_files shown below:
+
+![Screenshot from 2023-08-28 17-39-14](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/dc550baf-9f9c-43d0-9d42-df087638f420)
+
++ **Opt_check**
+
+- `vim opt_check.v`
+
+![Screenshot from 2023-08-28 17-40-32](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/5576bbc1-9a86-4e82-9206-347395a3852c)
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog opt_check.v`
+
+![Screenshot from 2023-08-28 17-44-22](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/1042ada6-c5fe-483f-a540-5a4b2be9a1ad)
+
+- `synth -top opt_check`
+- `opt_clean -purge`
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-28 17-45-03](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/7eadaf2a-2506-40ba-8693-66857b717030)
+
+![Screenshot from 2023-08-28 17-45-48](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/be30c0d8-7d25-44be-9cec-85c0f38ce8d9)
+
++ **Opt_check2**
+
+- `vim opt_check2.v`
+
+![Screenshot from 2023-08-28 17-42-18](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/9c4ef5cf-77a2-44f8-aba7-6b5398b28d9b)
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog opt_check2.v`
+- `synth -top opt_check2`
+- `opt_clean -purge`
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-28 17-48-02](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/864c8626-5d33-476a-b3e9-fa77f9407f5c)
+
++ **opt_check3**
+
+- `vim opt_check3.v`
+
+![Screenshot from 2023-08-28 17-42-28](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/43338f0d-d434-4f77-953b-1d99f34d5f8d)
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog opt_check3.v`
+- `synth -top opt_check3`
+- `opt_clean -purge`
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-28 18-14-56](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/987a43ae-fe35-45bd-bd9e-f99685b0a88d)
+
++ **opt_check4**
+
+- `vim opt_check4.v`
+
+![Screenshot from 2023-08-28 17-42-51](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/3b9a9ffc-e360-447d-aba3-36c5c9918a93)
 
 
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog opt_check4.v`
+- `synth -top opt_check4`
+- `opt_clean -purge`
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
 
- 
+![Screenshot from 2023-08-28 18-18-48](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/4c8f0e01-dd33-4c4d-a67b-67b31d8bcb07)
+
+</details>
 
 
+<details>
+<summary> multiple_module_opt </summary>
+
+- `vim multiple_module_opt.v`
+
+![Screenshot from 2023-09-03 21-34-08](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/87ee6acb-22a5-457e-b083-e3bdcb8548bf)
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog multiple_module_opt.v`
+- `synth -top multiple_module_opt`
+- `opt_clean -purge`
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-09-03 21-36-32](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/bf36420e-df21-4260-b204-ec24c10edf12)
+
+![Screenshot from 2023-09-03 21-37-41](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/723f0678-9229-4e47-a855-a9d13b615797)
+
+- **multiple_module_opt2**
+
+- `vim multiple_module_opt2.v`
+
+![Screenshot from 2023-09-03 21-40-53](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/db0db0b5-62d6-4464-9a90-3fa2ba734202)
 
 
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog multiple_module_opt2.v`
+- `synth -top multiple_module_opt2`
+- `opt_clean -purge`
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-28 18-33-57](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/d9205a6a-d3e8-4b8c-a19b-a97fc793be13)
 
 
+</details>
+
+## Sequential Logic Optimisations
 
 
+<details>
+<summary> dff_const(1,2,3,4,5) </summary>	
 
+the files we will be using in this are dff_const files shown below:
+
+![Screenshot from 2023-08-28 18-51-26](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/f5493663-26f9-4cdb-866d-3117539307a4)
+
+- **dff_const1**
+
+- `vim dff_const1.v`
+
+![Screenshot from 2023-08-28 18-53-26](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/3d8344d0-6e6d-4c37-887f-bc40e7ad1744)
+
+**Simulation**
+
+- `iverilog dff_const1.v tb_dff_const1.v`
+- `/a.out`
+- `gtkwave tb_dff_const1.vcd`
+
+![Screenshot from 2023-08-28 19-13-22](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/0e6d8d63-3e1d-4627-8927-1c4806cea6ea)
+
+**Synthesis**
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog dff_const1.v`
+- `synth -top dff_const1`
+- `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib `
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-28 19-23-17](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/801b4c4e-078b-475c-8193-58a2839c193c)
+
+![Screenshot from 2023-08-28 19-19-27](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/4682d0f4-b186-4011-b2c0-661c1a5ae382)
+
+- **dff_const2**
+
+- `vim dff_const2.v`
+
+![Screenshot from 2023-08-28 18-53-37](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/1541ce11-8f8e-40e4-a0ab-55fe6152f80f)
+
+**Simulation**
+
+- `iverilog dff_const2.v tb_dff_const2.v`
+- `/a.out`
+- `gtkwave tb_dff_const2.vcd`
+
+![Screenshot from 2023-08-28 19-14-29](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/85b93a46-4637-42db-abb7-5fa56a480c19)
+
+**Synthesis**
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog dff_const2.v`
+- `synth -top dff_const2`
+- `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib `
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-28 19-23-46](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/5df628eb-eb79-4838-a1ed-fc11c04dd196)
+
+![Screenshot from 2023-08-28 19-24-13](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/308a5c99-d6ae-4588-b4f0-987bd9251cec)
+
+- **dff_const3**
+
+- `vim dff_const3.v`
+
+![Screenshot from 2023-08-28 19-25-18](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/5803d512-2c4d-442a-bda8-81dfa446633e)
+
+**Simulation**
+
+- `iverilog dff_const3.v tb_dff_const3.v`
+- `/a.out`
+- `gtkwave tb_dff_const3.vcd`
+
+![Screenshot from 2023-08-28 19-42-40](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/b3d69f68-01a6-48b0-9cba-78421e6e30b0)
+
+**Synthesis**
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog dff_const3.v`
+- `synth -top dff_const3`
+- `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib `
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-28 19-43-48](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/a1144857-6896-4a69-835a-9205c5d59750)
+
+![Screenshot from 2023-08-28 19-45-06](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/b667b65f-021f-4af5-a932-88b05af8dba3)
+
+- **dff_const4**
+
+- `vim dff_const4.v`
+
+![Screenshot from 2023-08-28 19-47-49](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/f43972e5-e2ca-4a51-923e-709eed321709)
+
+**Simulation**
+
+- `iverilog dff_const4.v tb_dff_const4.v`
+- `/a.out`
+- `gtkwave tb_dff_const4.vcd`
+
+![Screenshot from 2023-08-28 19-47-25](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/4ea4e1dd-853b-4e95-b373-4afcb334b112)
+
+**Synthesis**
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog dff_const4.v`
+- `synth -top dff_const4`
+- `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib `
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-28 19-50-20](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/1e28a6c0-a956-4e84-b1e3-96dc519b4fb7)
+
+- **dff_const5**
+
+- `vim dff_const5.v`
+
+![Screenshot from 2023-08-28 19-48-22](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/cb4e0e16-fb46-4340-a955-ec07adfd3625)
+
+
+**Simulation**
+
+- `iverilog dff_const5.v tb_dff_const5.v`
+- `/a.out`
+- `gtkwave tb_dff_const5.vcd`
+
+![Screenshot from 2023-08-28 19-49-17](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/373159e5-a403-4eb7-9b56-b60529bf0e46)
+
+**Synthesis**
+
+- `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `read_verilog dff_const5.v`
+- `synth -top dff_const5`
+- `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib `
+- `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `show`
+
+![Screenshot from 2023-08-28 19-51-19](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/a23f8dca-6d1c-43a6-bf65-aa1666b9a9eb)
   	
+</details>
 
 
 

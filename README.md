@@ -930,11 +930,10 @@ endmodule
 	- When the reset is high on the positive edge of the clock, the output of the flip-flop is forced to 0.</details>
 	- Else, on the positive edge of the clock, the stored value is updated at the output.
 
-	- `vim dff_syncres.v`
+- `vim dff_syncres.v`
 
-	![Screenshot from 2023-09-03 19-49-59](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/ae1ae2f6-ec7e-485d-8cc9-cb6b0faf33c6)
+![Screenshot from 2023-09-03 19-49-59](https://github.com/Tawfeeq2507/pes_asic_class/assets/142083027/ae1ae2f6-ec7e-485d-8cc9-cb6b0faf33c6)
 
-</details>
 
 <details>
 <summary> Lab Flop Synthesis Simulations </summary>	

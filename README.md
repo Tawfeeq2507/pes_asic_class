@@ -27,6 +27,7 @@ ASIC stands for Application-Specific Integrated Circuit. It refers to a type of 
 ## DAY 1 
 
 **Introduction to RISCV ISA and GNU Compiler Toolchain**
+
 + Introduction to Basic Keywords
   - [Introduction](#introduction)
   - [From Apps to Hardware](#from-apps-to-hardware)
@@ -45,6 +46,7 @@ ASIC stands for Application-Specific Integrated Circuit. It refers to a type of 
 ## DAY 2 
 
 **Introduction to ABI and Basic Verification Flow**
+
 + Application Binary Interface
   - [Introduction to ABI](#introduction-to-abi)
   - [Memmory Allocation for Double Words](#memmory-allocation-for-double-words)
@@ -59,6 +61,7 @@ ASIC stands for Application-Specific Integrated Circuit. It refers to a type of 
 ## DAY 3
 
 **Introduction to Verilog RTL design and Synthesis**
+
 + [Introduction to Open-Source Simulator iVerilog](#introduction-to-open-source-simulator-iverilog)
    - Introduction to iVerilog Design Testbench
 + [Labs using iVerilog and GTKwave](#labs-using-iverilog-and-gtkwave)
@@ -74,6 +77,7 @@ ASIC stands for Application-Specific Integrated Circuit. It refers to a type of 
 ## DAY 4
 
 **Timing Libs, Hierarchical vs Flat Synthesis and Efficient Flop Coding Styles**
+
 + [Introduction to Timing Dot Libs](#introduction-to-timing-dot-libs)
   - Introduction to Dot Lib
 + [Hierarchical vs Flat Synthesis](#hierarchical-vs-flat-synthesis)
@@ -86,6 +90,7 @@ ASIC stands for Application-Specific Integrated Circuit. It refers to a type of 
 ## DAY 5
 
 **Combinational and Sequential Optmizations**
+
 + [Introduction to Optimisations](#introduction-to-optimisations)
 + [Combinational Logic Optimisations](#combinational-logic-optimisations)
 + [Sequential Logic Optimisations](#sequential-logic-optimisations)
@@ -94,6 +99,7 @@ ASIC stands for Application-Specific Integrated Circuit. It refers to a type of 
 ## DAY 6
 
 **GLS, Blocking vs Non-Blocking and Synthesis-Simulation Mismatch**
+
 + [GLS Synthesis-Simulation Mismatch and Blocking Non-Blocking Statements](#gls-synthesis-simulation-mismatch-and-blocking-non-blocking-statements)
   - GLS Concepts And Flow Using Iverilog
   - Synthesis Simulation Mismatch

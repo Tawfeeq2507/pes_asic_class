@@ -7,7 +7,12 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
 
 # VLSI Physical Design for ASICs
 The objective of VLSI (Very Large Scale Integration) physical design for ASICs (Application-Specific Integrated Circuits) is to transform a digital circuit's logical representation into a physical layout that meets various performance, power, area, and manufacturability requirements.
+
+# What is ASIC Flow?
+ASIC stands for Application-Specific Integrated Circuit. It refers to a type of integrated circuit (IC) that is custom-designed for a specific application or purpose. ASICs are contrasted with general-purpose integrated circuits, like microprocessors or memory chips, which are designed to perform a wide range of tasks.ASIC design flow refers to the entire process of designing and manufacturing an ASIC.
+
 # SKILL OUTCOMES
+
 + Architectural Design
 + RTL Design / Behavioral Modeling
 + Floorplanning
@@ -15,8 +20,12 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
 + clock Tree Synthesis
 + Routing
 
+
+
 # TABLE OF CONTENTS
+
 ## DAY 1 
+
 **Introduction to RISCV ISA and GNU Compiler Toolchain**
 + Introduction to Basic Keywords
   - [Introduction](#introduction)
@@ -34,6 +43,7 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
   - [Labwork For Signed and Unsigned Numbers](#labwork-for-signed-and-unsigned-numbers)
 
 ## DAY 2 
+
 **Introduction to ABI and Basic Verification Flow**
 + Application Binary Interface
   - [Introduction to ABI](#introduction-to-abi)
@@ -47,6 +57,7 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
   - [Simulate C Program using Function Call](#simulate-c-program-using-function-call)
 
 ## DAY 3
+
 **Introduction to Verilog RTL design and Synthesis**
 + [Introduction to Open-Source Simulator iVerilog](#introduction-to-open-source-simulator-iverilog)
    - Introduction to iVerilog Design Testbench
@@ -61,6 +72,7 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
    - Yosys good mux
  
 ## DAY 4
+
 **Timing Libs, Hierarchical vs Flat Synthesis and Efficient Flop Coding Styles**
 + [Introduction to Timing Dot Libs](#introduction-to-timing-dot-libs)
   - Introduction to Dot Lib
@@ -72,6 +84,7 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
   - Interesting Optimisations
 
 ## DAY 5
+
 **Combinational and Sequential Optmizations**
 + [Introduction to Optimisations](#introduction-to-optimisations)
 + [Combinational Logic Optimisations](#combinational-logic-optimisations)
@@ -79,6 +92,7 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
 + [Sequential Optimisations for Unused Outputs](#sequential-optimisations-for-unused-outputs)
 
 ## DAY 6
+
 **GLS, Blocking vs Non-Blocking and Synthesis-Simulation Mismatch**
 + [GLS Synthesis-Simulation Mismatch and Blocking Non-Blocking Statements](#gls-synthesis-simulation-mismatch-and-blocking-non-blocking-statements)
   - GLS Concepts And Flow Using Iverilog
@@ -89,9 +103,11 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
 + [Labs on Synth-Sim Mismatch for Blocking Statement](#labs-on-synth-sim-mismatch-for-blocking-statement)
 
 ## Tools Used:
+
 + **RISC-V GNU Toolchain**: A comprehensive set of tools for compiling and building software to run on RISC-V processors.
 + **RISC-V ISA Simulator**: A RISC-V simulator used for functional verification and testing of RISC-V code without needing actual hardware.
 + **RISC-V Proxy Kernel**: The RISC-V Proxy Kernel, a lightweight execution environment for running user-level applications on RISC-V processors.
++ **YOSYS**: Yosys is an open-source framework for Verilog RTL synthesis. It's widely used in digital design for converting high-level descriptions of a digital circuit into a gate-level representation. In other words, it helps in transforming a behavioral description (written in a language like Verilog) into a netlist, which is a detailed representation of the digital logic in terms of gates and their interconnections.
 
 # Day-1   
 ## Introduction to Basic Keywords

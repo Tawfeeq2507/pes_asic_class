@@ -11,6 +11,10 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
 # What is ASIC Flow?
 ASIC stands for Application-Specific Integrated Circuit. It refers to a type of integrated circuit (IC) that is custom-designed for a specific application or purpose. ASICs are contrasted with general-purpose integrated circuits, like microprocessors or memory chips, which are designed to perform a wide range of tasks.ASIC design flow refers to the entire process of designing and manufacturing an ASIC.
 
+In ASIC flow we come up with an Idea such as an inverter,ring counter,etc and we try to have this on our chips,but these follow some steps before coming out as chips these steps are-
+1) RTL to GDS
+2) GDS to Tapeout
+
 # SKILL OUTCOMES
 
 + Architectural Design
